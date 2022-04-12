@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     'choiceDate',
     'comments',
     'freshness',
-
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -29,13 +29,16 @@ export class AppComponent implements OnInit {
   constructor(private dialog: MatDialog, private api: ApiService) {}
   ngOnInit(): void {
     this.getAllProduct();
-  
   }
 
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '30%',
-    });
+    }).afterClosed().subscribe(val => {
+      if (val=== "save") {
+        this.getAllProduct()
+      }
+    })
   }
 
   getAllProduct() {
@@ -44,6 +47,7 @@ export class AppComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        console.log(res);
       },
       error: (err) => {
         alert('erro while the fatching the api ');
@@ -51,6 +55,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  editProduct(row : any) {
+    this.dialog.open(DialogComponent, {
+      width: '30%',
+      data: row,
+    }).afterClosed().subscribe(val => {
+      if (val === 'update') {
+        this.getAllProduct()
+      }
+    })
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
