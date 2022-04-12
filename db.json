@@ -1,0 +1,23 @@
+{
+  "productList": [
+    {
+      "productName": "fsfsf",
+      "categories": "vegetable",
+      "choiceDate": "2022-04-11T18:00:00.000Z",
+      "freshness": "BrandNew",
+      "price": 10,
+      "comments": "sfsfs",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
