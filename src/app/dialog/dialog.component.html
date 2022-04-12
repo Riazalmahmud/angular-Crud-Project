@@ -31,7 +31,7 @@
 formControlName="freshness"
   aria-labelledby="example-radio-group-label"
   class="example-radio-group">
-  <mat-radio-button formControlName="published" class="example-radio-button" *ngFor="let fresh of freshnessList" [value]="fresh">
+  <mat-radio-button class="example-radio-button" *ngFor="let fresh of freshnessList" [value]="fresh">
     {{fresh}}
   </mat-radio-button>
 </mat-radio-group>

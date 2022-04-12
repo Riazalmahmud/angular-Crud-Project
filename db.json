@@ -8,6 +8,15 @@
       "price": 10,
       "comments": "sfsfs",
       "id": 1
+    },
+    {
+      "productName": "alu",
+      "categories": "vegetable",
+      "choiceDate": "2022-04-19T18:00:00.000Z",
+      "freshness": "reuse",
+      "price": 12,
+      "comments": "fsfsfs",
+      "id": 2
     }
   ],
   "comments": [
