@@ -32,13 +32,16 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
-      width: '30%',
-    }).afterClosed().subscribe(val => {
-      if (val=== "save") {
-        this.getAllProduct()
-      }
-    })
+    this.dialog
+      .open(DialogComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllProduct();
+        }
+      });
   }
 
   getAllProduct() {
@@ -55,15 +58,30 @@ export class AppComponent implements OnInit {
     });
   }
 
-  editProduct(row : any) {
-    this.dialog.open(DialogComponent, {
-      width: '30%',
-      data: row,
-    }).afterClosed().subscribe(val => {
-      if (val === 'update') {
+  editProduct(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '30%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
+          this.getAllProduct();
+        }
+      });
+  }
+
+  deletePorduct(id: number) {
+    this.api.deleteProdut(id).subscribe({
+      next: (res) => {
+        alert('successfully deleted data');
         this.getAllProduct()
-      }
-    })
+      },
+      error() {
+        alert('delete unsuccesfull');
+      },
+    });
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

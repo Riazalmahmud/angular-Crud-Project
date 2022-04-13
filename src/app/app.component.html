@@ -61,7 +61,7 @@
       <button mat-icon-button (click)="editProduct(row)" color="primary">
         <mat-icon  >edit</mat-icon>
       </button>
-      <button mat-icon-button  color="warn">
+      <button (click)="deletePorduct(row.id)" mat-icon-button  color="warn">
         <mat-icon >delete</mat-icon>
       </button>
       </td>

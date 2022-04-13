@@ -1,21 +1,21 @@
 {
   "productList": [
     {
-      "productName": "fsfsf",
+      "productName": "abul",
       "categories": "vegetable",
       "choiceDate": "2022-04-11T18:00:00.000Z",
       "freshness": "BrandNew",
-      "price": 10,
-      "comments": "sfsfs",
+      "price": "sfsfs",
+      "comments": "",
       "id": 1
     },
     {
-      "productName": "alu",
-      "categories": "vegetable",
-      "choiceDate": "2022-04-19T18:00:00.000Z",
-      "freshness": "reuse",
-      "price": 12,
-      "comments": "fsfsfs",
+      "productName": "leptop",
+      "categories": "Electronic",
+      "choiceDate": "2022-04-13T18:00:00.000Z",
+      "freshness": "secoundHand",
+      "price": 120,
+      "comments": "fsljfsl",
       "id": 2
     }
   ],

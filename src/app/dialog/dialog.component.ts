@@ -20,7 +20,6 @@ export class DialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
     this.productForm = this.formBuilder.group({
       productName: ['', Validators.required],
       categories: ['', Validators.required],
@@ -30,7 +29,7 @@ export class DialogComponent implements OnInit {
       comments: ['', Validators.required],
     });
     if (this.editData) {
-        this.actionBtn = 'Update';
+      this.actionBtn = 'Update';
       this.productForm.controls['productName'].setValue(
         this.editData.productName
       );
@@ -54,6 +53,7 @@ export class DialogComponent implements OnInit {
             alert('product added successfully');
             this.productForm.reset();
             this.dialogRef.close('save');
+    
           },
           error: () => {
             alert('error while adding the product');
@@ -66,17 +66,17 @@ export class DialogComponent implements OnInit {
 
     console.log(this.productForm.value);
   }
+  
   updateData() {
-    this.api.putProduct(this.productForm.value, this.editData)
-      .subscribe({
-        next: (res) => {
-          alert('successfully updated data')
-          this.productForm.reset()
-          this.dialogRef.close("update")
-        },
-        error() {
-          alert('Unsuccessfull updated data');
-        }
-    })
+    this.api.putProduct(this.productForm.value, this.editData.id).subscribe({
+      next: (res) => {
+        alert('successfully updated data');
+        this.productForm.reset();
+        this.dialogRef.close('update');
+      },
+      error() {
+        alert('Unsuccessfull updated data');
+      },
+    });
   }
 }
